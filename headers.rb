@@ -21,7 +21,7 @@ begin
       if x == ['x-frame-options', 'sameorigin']
     puts "[+] #{page} set X-Content-Type-Options to nosniff"                      \
       if x == ['x-content-type-options', 'nosniff']
-    puts "[+] #{page} set XSS Protection (X-Xss-Protection: 1; mode=block)"       \
+    puts "[+] #{page} provides XSS Protection (X-Xss-Protection: 1; mode=block)"  \
       if x == ['x-xss-protection', '1; mode=block']
     puts "[+] #{page} sets Content-Security-Policy"                               \
       if x.first == "content-security-policy" or                                  \

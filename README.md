@@ -1,5 +1,5 @@
 ## HTTP(S) Security Headers
-Scripts to check for HTTP Security Headers.
+Check for HTTP Security Headers.
 
 ### Usage
 
@@ -11,7 +11,7 @@ $ ruby headers.rb http://twitter.com
 [+] https://twitter.com supports HSTS
 [+] https://twitter.com set X-Content-Type-Options to nosniff
 [+] https://twitter.com set X-Frame-Options to SAMEORIGIN
-[+] https://twitter.com set XSS Protection (X-Xss-Protection: 1; mode=block)
+[+] https://twitter.com provides XSS Protection (X-Xss-Protection: 1; mode=block)
 ```
 
 ### Resources
