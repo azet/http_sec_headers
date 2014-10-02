@@ -2,7 +2,6 @@
 Check for HTTP Security Headers.
 
 ### Usage
-
 #### headers.rb
 ```
 $ ruby headers.rb http://twitter.com
@@ -15,9 +14,10 @@ $ ruby headers.rb http://twitter.com
 ```
 
 ### Resources
-  * [Wikipedia on HTTP Header Fields](https://en.wikipedia.org/wiki/List_of_HTTP_header_fields#Common_non-standard_response_fields)
   * [OWASP Wiki on Security Related HTTP Headers](https://www.owasp.org/index.php/List_of_useful_HTTP_headers)
+  * [Wikipedia on HTTP Header Fields](https://en.wikipedia.org/wiki/List_of_HTTP_header_fields#Common_non-standard_response_fields)
   * [Wikipedia on HSTS](https://en.wikipedia.org/wiki/HTTP_Strict_Transport_Security)
+  * [Wikipedia on BREACH](https://en.wikipedia.org/wiki/BREACH_(security_exploit))
 
 ## License
 CC0 1.0: https://creativecommons.org/publicdomain/zero/1.0/

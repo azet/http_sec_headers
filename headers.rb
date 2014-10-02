@@ -26,6 +26,8 @@ begin
     puts "[+] #{page} sets Content-Security-Policy"                               \
       if x.first == "content-security-policy" or                                  \
          x.first == "content-security-policy-report-only"
+    puts "[-] #{page} supports HTTP compression (BREACH)"                         \
+      if x.first == "content-encoding"
   end
 rescue => e
   if e.message =~ /redirection|https/i
