@@ -28,7 +28,7 @@ begin
          x.first == "content-security-policy-report-only"
   end
 rescue => e
-  if e.message =~ /redirection/
+  if e.message =~ /redirection|https/i
     puts "[+] #{page} redirects to HTTPS"
     page = page.gsub("http", "https")
     retry
