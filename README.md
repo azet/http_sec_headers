@@ -15,6 +15,7 @@ $ ruby headers.rb http://twitter.com
 ```
 
 ### Resources
+  * [Wikipedia on HTTP Header Fields](https://en.wikipedia.org/wiki/List_of_HTTP_header_fields#Common_non-standard_response_fields)
   * [OWASP Wiki on Security Related HTTP Headers](https://www.owasp.org/index.php/List_of_useful_HTTP_headers)
 
 ## License
