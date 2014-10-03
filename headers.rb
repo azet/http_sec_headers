@@ -28,32 +28,40 @@ def scan_headers field, page
 end
 
 if not ARGV.first
-  puts "Usage: ruby headers.rb http://example.com"
+  puts "Usage: ruby headers.rb http://example.com [...]"
   exit 1
 end
-page = ARGV.first
 
-begin
-  open(page).meta.each do |field|
-    scan_headers field, page
-  end
-rescue => e
-  case
-  when e.message =~ /verify failed/
-    puts "[-] #{page} has no valid TLS certificate!"
-    # when overriding this constant, ruby will - correctly - issue a warning
-    # we supress the warning with the parameter -W0, since we still want to
-    # run the remaining checks that the script offers without being bothered
-    OpenSSL::SSL::VERIFY_PEER = OpenSSL::SSL::VERIFY_NONE
-    retry
-  when e.message =~ /redirection\s+forbidden:\s+http:\S+\s+->\s+https:/i
-    puts "[+] #{page} redirects to HTTPS."
-    page = page.gsub("http", "https")
-    retry
-  else
-    puts "[-] #{page} downgrades HTTPS to HTTP!"
-    page = page.gsub("https", "http")
-    retry
-  end
+pages = []
+loop do
+  pages << ARGV.first
+  ARGV.shift
+  break if not ARGV.first
 end
 
+pages.each do |page|
+  puts "::: scanning #{page}:"
+  begin
+    open(page).meta.each do |field|
+      scan_headers field, page
+    end
+  rescue => e
+    case
+    when e.message =~ /verify failed/
+      puts "[-] #{page} has no valid TLS certificate!"
+      # when overriding this constant, ruby will - correctly - issue a warning
+      # we supress the warning with the parameter -W0, since we still want to
+      # run the remaining checks that the script offers without being bothered
+      OpenSSL::SSL::VERIFY_PEER = OpenSSL::SSL::VERIFY_NONE
+      retry
+    when e.message =~ /redirection\s+forbidden:\s+http:\S+\s+->\s+https:/i
+      puts "[+] #{page} redirects to HTTPS."
+      page = page.gsub("http", "https")
+      retry
+    else
+      puts "[-] #{page} downgrades HTTPS to HTTP!"
+      page = page.gsub("https", "http")
+      retry
+    end
+  end
+end

@@ -22,14 +22,26 @@ Contributions are always welcome!
 
 ### Usage
 #### headers.rb
+`ruby headers.rb http://example.com [...]`
+
+By example:
 ```
-$ ruby headers.rb http://twitter.com
+$ ruby headers.rb http://twitter.com http://paypal.com http://facebook.com
+::: scanning http://twitter.com:
 [+] http://twitter.com redirects to HTTPS.
 [+] https://twitter.com sets Content-Security-Policy.
 [+] https://twitter.com supports HSTS.
 [+] https://twitter.com set X-Content-Type-Options to nosniff.
 [+] https://twitter.com set X-Frame-Options to SAMEORIGIN.
 [+] https://twitter.com provides XSS Protection (X-Xss-Protection: 1; mode=block).
+::: scanning http://paypal.com:
+[+] http://paypal.com redirects to HTTPS.
+[+] https://paypal.com set X-Frame-Options to SAMEORIGIN.
+[+] https://paypal.com supports HSTS.
+::: scanning http://facebook.com:
+[+] http://facebook.com redirects to HTTPS.
+[+] https://facebook.com provides 'Clickjacking Protection' (X-Frame-Options: deny).
+[+] https://facebook.com set X-Content-Type-Options to nosniff.
 ```
 
 ### Resources
