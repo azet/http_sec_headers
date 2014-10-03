@@ -18,7 +18,7 @@ In addition it checks if..
 Please refer to the 'Resources' section of this document for more
 information on the security implications or features of these HTTP headers fields.
 
-Contributions are always welcome!
+**Contributions are always welcome!**
 
 ### Usage
 #### headers.rb
