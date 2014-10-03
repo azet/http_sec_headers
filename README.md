@@ -1,5 +1,24 @@
-## HTTP Security Headers
-Check for HTTP Security Headers.
+## Check for HTTP Security Headers
+
+This script currently scans for the following HTTP header fields:
+  * `Strict-Transport-Security` (HSTS)
+  * `Public-Key-Pins` (HPKP)
+  * `X-Frame-Options: deny`
+  * `X-Frame-Options: SAMEORIGIN`
+  * `X-Content-Type-Options: nosniff`
+  * `X-XSS-Protection: 1; mode=block`
+  * If `Content-Security-Policy` or `Content-Security-Policy-Report-Only` are set
+  * If `Content-Encoding` is used (BREACH Attack)
+
+In addition it checks if..
+  * HTTP requests are being upgraded to HTTPS
+  * HTTPS requests are being downgraded to HTTP
+  * Invalid (e.g. self-signed, revoked, expired) SSL/TLS certificates are used
+
+Please refer to the 'Resources' section of this document for more
+information on the security implications or features of these HTTP headers fields.
+
+Contributions are always welcome!
 
 ### Usage
 #### headers.rb
@@ -18,6 +37,7 @@ $ ruby headers.rb http://twitter.com
   * [Wikipedia on HTTP Header Fields](https://en.wikipedia.org/wiki/List_of_HTTP_header_fields#Common_non-standard_response_fields)
   * [Wikipedia on HSTS](https://en.wikipedia.org/wiki/HTTP_Strict_Transport_Security)
   * [Wikipedia on BREACH](https://en.wikipedia.org/wiki/BREACH_(security_exploit))
+  * [IETF HPKP Draft](https://tools.ietf.org/html/draft-ietf-websec-key-pinning)
 
 ## License
-CC0 1.0: https://creativecommons.org/publicdomain/zero/1.0/
+CC0 1.0 (https://creativecommons.org/publicdomain/zero/1.0)
