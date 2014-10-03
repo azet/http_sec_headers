@@ -5,12 +5,12 @@ Check for HTTP Security Headers.
 #### headers.rb
 ```
 $ ruby headers.rb http://twitter.com
-[+] http://twitter.com redirects to HTTPS
-[+] https://twitter.com sets Content-Security-Policy
-[+] https://twitter.com supports HSTS
-[+] https://twitter.com set X-Content-Type-Options to nosniff
-[+] https://twitter.com set X-Frame-Options to SAMEORIGIN
-[+] https://twitter.com provides XSS Protection (X-Xss-Protection: 1; mode=block)
+[+] http://twitter.com redirects to HTTPS.
+[+] https://twitter.com sets Content-Security-Policy.
+[+] https://twitter.com supports HSTS.
+[+] https://twitter.com set X-Content-Type-Options to nosniff.
+[+] https://twitter.com set X-Frame-Options to SAMEORIGIN.
+[+] https://twitter.com provides XSS Protection (X-Xss-Protection: 1; mode=block).
 ```
 
 ### Resources
