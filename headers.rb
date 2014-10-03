@@ -34,8 +34,7 @@ end
 
 pages = []
 loop do
-  pages << ARGV.first
-  ARGV.shift
+  pages << ARGV.first and ARGV.shift
   break if not ARGV.first
 end
 
