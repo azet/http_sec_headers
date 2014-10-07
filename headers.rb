@@ -57,10 +57,13 @@ pages.each do |page|
       puts "[+] #{page} redirects to HTTPS."
       page = page.gsub("http", "https")
       retry
-    else
+    when e.message =~ /redirection\s+forbidden:\s+https:\S+\s+->\s+http:/i
       puts "[-] #{page} downgrades HTTPS to HTTP!"
       page = page.gsub("https", "http")
       retry
+    else
+      puts "!!! error: #{e}"
+      next
     end
   end
 end
