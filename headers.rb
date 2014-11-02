@@ -4,6 +4,11 @@
 #
 require 'open-uri'
 
+def usage
+  puts "Usage: ruby headers.rb http://example.com [...]"
+  exit 1
+end
+
 def scan_headers field, page
   field.map!(&:downcase)
   case
@@ -27,10 +32,7 @@ def scan_headers field, page
   end
 end
 
-unless ARGV.first
-  puts "Usage: ruby headers.rb http://example.com [...]"
-  exit 1
-end
+usage unless ARGV.first
 
 pages = []
 loop do
@@ -46,6 +48,9 @@ pages.each do |page|
     end
   rescue => e
     case
+    when e.message =~ /No such file/
+      puts "!!! error: not a valid URL\n\n"
+      usage
     when e.message =~ /verify failed/
       puts "[-] #{page} has no valid TLS certificate!"
       # when overriding this constant, ruby will - correctly - issue a warning
