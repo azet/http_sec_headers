@@ -27,7 +27,7 @@ def scan_headers field, page
   end
 end
 
-if not ARGV.first
+unless ARGV.first
   puts "Usage: ruby headers.rb http://example.com [...]"
   exit 1
 end
@@ -35,7 +35,7 @@ end
 pages = []
 loop do
   pages << ARGV.first and ARGV.shift
-  break if not ARGV.first
+  break unless ARGV.first
 end
 
 pages.each do |page|
