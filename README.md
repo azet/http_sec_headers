@@ -49,7 +49,8 @@ $ ruby headers.rb http://twitter.com http://paypal.com http://facebook.com
   * [Wikipedia on HTTP Header Fields](https://en.wikipedia.org/wiki/List_of_HTTP_header_fields#Common_non-standard_response_fields)
   * [Wikipedia on HSTS](https://en.wikipedia.org/wiki/HTTP_Strict_Transport_Security)
   * [Wikipedia on BREACH](https://en.wikipedia.org/wiki/BREACH_(security_exploit))
-  * [IETF HPKP Draft](https://tools.ietf.org/html/draft-ietf-websec-key-pinning)
+  * [RFC 7469 (Public Key Pinning Extension for
+    HTTP)](https://tools.ietf.org/html/rfc7469)
 
 ## License
 CC0 1.0 (https://creativecommons.org/publicdomain/zero/1.0)
