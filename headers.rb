@@ -5,7 +5,7 @@
 require 'open-uri'
 
 def scan_headers field, page
-  field.map!(&:downcase)
+  field.map! &:downcase
   case
   when field.first == "strict-transport-security"
     puts "[+] #{page} supports HSTS."
@@ -28,7 +28,7 @@ def scan_headers field, page
 end
 
 unless ARGV.first
-  puts "usage: ruby headers.rb http://example.com [...]"
+  puts "  usage: ruby headers.rb http://example.com [...]"
   exit 1
 end
 
