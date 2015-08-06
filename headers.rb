@@ -4,11 +4,6 @@
 #
 require 'open-uri'
 
-def usage
-  puts "Usage: ruby headers.rb http://example.com [...]"
-  exit 1
-end
-
 def scan_headers field, page
   field.map!(&:downcase)
   case
@@ -32,7 +27,10 @@ def scan_headers field, page
   end
 end
 
-usage unless ARGV.first
+unless ARGV.first
+  puts "usage: ruby headers.rb http://example.com [...]"
+  exit 1
+end
 
 pages = []
 loop do
