@@ -8,6 +8,8 @@ This script currently scans for the following HTTP header fields:
   * `X-Content-Type-Options: nosniff`
   * `X-XSS-Protection: 1; mode=block`
   * If `Content-Security-Policy` or `Content-Security-Policy-Report-Only` are set
+  * If `Content-Security-Policy: upgrade-insecure-requests` is set
+    (force resource requests to upgrade to HTTPS)
   * If `Content-Encoding` is used (BREACH Attack)
 
 In addition it checks if..
@@ -51,6 +53,8 @@ $ ruby headers.rb http://twitter.com http://paypal.com http://facebook.com
   * [Wikipedia on BREACH](https://en.wikipedia.org/wiki/BREACH_(security_exploit))
   * [RFC 7469 (Public Key Pinning Extension for
     HTTP)](https://tools.ietf.org/html/rfc7469)
+  * [Upgrade Insecure Requests
+    (CSP)](http://www.w3.org/TR/upgrade-insecure-requests/)
 
 ## License
 CC0 1.0 (https://creativecommons.org/publicdomain/zero/1.0)

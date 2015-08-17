@@ -22,6 +22,8 @@ def scan_headers field, page
   when field.first == "content-security-policy"
   when field.first == "content-security-policy-report-only"
     puts "[+] #{page} sets Content-Security-Policy."
+  when field == ['content-security-policy', 'upgrade-insecure-requests']
+    puts "[+] #{page} upgrades resource requests (CSP):"
   when field.first == "content-encoding"
     puts "[-] #{page} uses HTTP compression (BREACH)!"
   end
